@@ -146,6 +146,25 @@ void xuat_phan_tu_diem_yen_ngua(int m, int n, int ma_tran[50][50]) {
 	printf("\n");
 }
 
+void xuat_dong_chi_chua_so_chan(int m, int n, int ma_tran[50][50]) {
+	printf("Dong chi chua so chan:\n");
+	for (int i = 0; i < m; i++) {
+		int all_even = 1;
+		for (int j = 0; j < n; j++) {
+			if (ma_tran[i][j] % 2 != 0) {
+				all_even = 0;
+				break;
+			}
+		}
+		if (all_even) {
+			for (int j = 0; j < n; j++) {
+				printf("%d ", ma_tran[i][j]);
+			}
+			printf("\n");
+		}
+	}
+}
+
 
 int main() {
 	int m,n, k = 10;
@@ -168,6 +187,7 @@ int main() {
 		printf("5. Xuat cac phan tu cuc dai\n");
 		printf("6. Xuat phan tu hoang hau\n");
 		printf("7. Xuat cac phan tu la diem yen ngua\n");
+		printf("8. Xuat dong chi chua so chan\n");
 		printf("0. Thoat\n");
 		printf("Nhap lua chon cua ban ");
 		scanf_s("%d", &choice);
@@ -202,7 +222,7 @@ int main() {
 			xuat_phan_tu_diem_yen_ngua(m, n, ma_tran);
 			break;
 		case 8:
-		//	xuat_dong_chi_chua_so_chan(m, n, ma_tran);
+			xuat_dong_chi_chua_so_chan(m, n, ma_tran);
 			break;
 		case 9:
 		//	sap_xep_tang_theo_tung_dong(m, n, ma_tran);
