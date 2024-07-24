@@ -24,11 +24,22 @@ void xuatMaTran(int a[][50], int n)
 	}
 		
 }
+void xuatCacPhanTuTrenDuongCheoChinh(int a[][50], int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			if (i == j)
+				printf("%4d", a[i][j]);
+		}											
+	}
+}
 void Menu()
 {
 	printf("\n------Menu---------\n");
-	printf("1. Tao ma tran vuong cap n>5. ");
-
+	printf("1. Tao ma tran vuong cap n>5.\n ");
+	printf("2. Xuat cac phan tu tren duong cheo chinh.\n");
 }
 int main()
 {
@@ -48,8 +59,10 @@ int main()
 			case 1:
 				taoMaTran(a, n);
 				xuatMaTran(a, n);
+				break;
 			case 2:
-
+				printf("Cac phan tu tren duong cheo chinh: ");
+				xuatCacPhanTuTrenDuongCheoChinh(a, n);
 			default: 
 				break;
 			}
