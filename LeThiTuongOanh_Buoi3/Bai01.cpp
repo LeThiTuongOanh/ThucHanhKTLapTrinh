@@ -36,6 +36,24 @@ void xuat_tong_tung_dong(int m, int tong[50]) {
 	}
 }
 
+void phan_tu_lon_nhat_cot(int m, int n, int ma_tran[][50], int max_cot[50]) {
+	for (int j = 0; j < n; j++) {
+		max_cot[j] = ma_tran[0][j];
+		for (int i = 1; i < m; i++) {
+			if (ma_tran[i][j] > max_cot[j]) {
+				max_cot[j] = ma_tran[i][j];
+			}
+		}
+	}
+}
+
+
+void xuat_max_cot(int n, int max_cot[50]) {
+	for (int j = 0; j < n; j++) {
+		printf("Phan tu lon nhat cot %d la : %d\n", j, max_cot[j]);
+	}
+}
+
 
 
 int main() {
@@ -54,8 +72,8 @@ int main() {
 		printf("\nMenu:\n");
 		printf("1. Tao va xuat ma tran \n");
 		printf("2. Tinh tong gia tri tren tung dong\n");
-		
-		printf(" Thoat\n");
+		printf("3. Xuat phan tu lon nhat tren tung cot\n");
+		printf("0. Thoat\n");
 		printf("Nhap lua chon cua ban ");
 		scanf_s("%d", &choice);
 
@@ -70,7 +88,12 @@ int main() {
 			printf("Tong gia tri tung dong:\n");
 			xuat_tong_tung_dong(m, tong);
 			break;
-	
+		case 3:
+			phan_tu_lon_nhat_cot(m, n, ma_tran, max_cot);
+			printf("Phan tu lon nhat tren cot:\n");
+			xuat_max_cot(n, max_cot);
+			break;
+
 		case 0:
 			break;
 		default:
