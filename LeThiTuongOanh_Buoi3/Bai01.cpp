@@ -99,7 +99,28 @@ void xuat_phan_tu_cuc_dai(int m, int n, int ma_tran[50][50]) {
 	printf("\n");
 }
 
-
+void xuat_phan_tu_hoang_hau(int m, int n, int ma_tran[50][50]) {
+	printf("Phan tu hoang hau:\n");
+	for (int i = 0; i < m; i++) {
+		for (int j = 0; j < n; j++) {
+			int is_queen = 1;
+			for (int k = 0; k < n; k++) {
+				if (ma_tran[i][j] < ma_tran[i][k]) {
+					is_queen = 0;
+					break;
+				}
+			}
+			for (int k = 0; k < m; k++) {
+				if (ma_tran[i][j] < ma_tran[k][j]) {
+					is_queen = 0;
+					break;
+				}
+			}
+			if (is_queen) printf("%d ", ma_tran[i][j]);
+		}
+	}
+	printf("\n");
+}
 
 int main() {
 	int m,n, k = 10;
@@ -120,6 +141,7 @@ int main() {
 		printf("3. Xuat phan tu lon nhat tren tung cot\n");
 		printf("4. Xuat duong bien trai phai tren duoi\n");
 		printf("5. Xuat cac phan tu cuc dai\n");
+		printf("6. Xuat phan tu hoang hau\n");
 		printf("0. Thoat\n");
 		printf("Nhap lua chon cua ban ");
 		scanf_s("%d", &choice);
@@ -146,6 +168,19 @@ int main() {
 			break;
 		case 5:
 			xuat_phan_tu_cuc_dai(m, n, ma_tran);
+			break;
+		case 6:
+			xuat_phan_tu_hoang_hau(m, n, ma_tran);
+			break;
+		case 7:
+		//	xuat_phan_tu_diem_yen_ngua(m, n, ma_tran);
+			break;
+		case 8:
+		//	xuat_dong_chi_chua_so_chan(m, n, ma_tran);
+			break;
+		case 9:
+		//	sap_xep_tang_theo_tung_dong(m, n, ma_tran);
+		//	xuat_ma_tran_sap_xep(m, n, ma_tran);
 			break;
 		case 0:
 			printf("Thoat.\n");
