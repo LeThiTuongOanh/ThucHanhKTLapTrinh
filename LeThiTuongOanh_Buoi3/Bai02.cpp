@@ -118,6 +118,18 @@ void sapXepDuongCheoChinh(int a[][50], int n)
 		}
 	}
 }
+
+void sapXepDuongCheoPhuTangDan(int a[][50], int n) {
+	for (int i = 0; i < n - 1; i++) {
+		for (int j = i + 1; j < n; j++) {
+			if (a[i][n - 1 - i] > a[j][n - 1 - j]) {
+				int temp = a[i][n - 1 - i];
+				a[i][n - 1 - i] = a[j][n - 1 - j];
+				a[j][n - 1 - j] = temp;
+			}
+		}
+	}
+}
 void Menu()
 {
 	printf("\n------Menu---------\n");
@@ -127,6 +139,7 @@ void Menu()
 	printf("4.  Tim phan tu lon nhat thuoc tam giac tren cua duong cheo chinh\n");
 	printf("5. Sap xep ma tran tang dan theo kieu zic-zac\n");
 	printf("6. Sap xep duong cheo chinh tang dan tu tren xuong duoi\n");
+	printf("7. Sap xep duong cheo phu tang dan\n");
 
 
 }
@@ -167,6 +180,11 @@ int main()
 			case 6:
 				sapXepDuongCheoChinh(a,n);
 				printf("Ma tran sau khi sap xep duong cheo chinh:\n");
+				xuatMaTran(a,n);
+				break;
+			case 7:
+				sapXepDuongCheoPhuTangDan(a,n);
+				printf("Ma tran sau khi sap xep duong cheo phu tang dan:\n");
 				xuatMaTran(a,n);
 				break;
 			default: 
