@@ -56,6 +56,37 @@ void xuat_max_cot(int n, int max_cot[50]) {
 
 
 
+
+void xuat_duong_bien(int m, int n, int ma_tran[50][50]) {
+	printf("Phan tu duong bien :\n");
+
+
+	for (int j = 0; j < n; j++) {
+		printf("%d ", ma_tran[0][j]);
+	}
+	printf("\n");
+
+
+	for (int j = 0; j < n; j++) {
+		printf("%d ", ma_tran[m - 1][j]);
+	}
+	printf("\n");
+
+
+	for (int i = 1; i < m - 1; i++) {
+		printf("%d ", ma_tran[i][0]);
+	}
+	printf("\n");
+
+	for (int i = 1; i < m - 1; i++) {
+		printf("%d ", ma_tran[i][n - 1]);
+	}
+	printf("\n");
+}
+
+
+
+
 int main() {
 	int m,n, k = 10;
 	int ma_tran[50][50];
@@ -73,6 +104,8 @@ int main() {
 		printf("1. Tao va xuat ma tran \n");
 		printf("2. Tinh tong gia tri tren tung dong\n");
 		printf("3. Xuat phan tu lon nhat tren tung cot\n");
+		printf("3. Xuat duong bien trai phai tren duoi\n");
+
 		printf("0. Thoat\n");
 		printf("Nhap lua chon cua ban ");
 		scanf_s("%d", &choice);
@@ -94,7 +127,11 @@ int main() {
 			xuat_max_cot(n, max_cot);
 			break;
 
+		case 4:
+			xuat_duong_bien(m, n, ma_tran);
+			break;
 		case 0:
+			printf("Thoat.\n");
 			break;
 		default:
 			printf("Lua chon khong hop le Vui long chon lai.\n");
