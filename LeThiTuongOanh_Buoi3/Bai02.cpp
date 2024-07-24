@@ -68,13 +68,53 @@ int xuatMaxTamGiacTren(int a[][50], int n)
 	}
 	return max;
 }
+void sapXepZicZac(int a[][50], int n)
+{
+	int temp[50];
+	int index = 0;
+
+	// Chuyển ma trận thành mảng
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < n; j++) {
+			temp[index++] = a[i][j];
+		}
+	}
+
+	// Sắp xếp mảng
+	for (int i = 0; i < n*n - 1; i++) {
+		for (int j = i + 1; j < n*n; j++) {
+			if (temp[i] > temp[j]) {
+				int t = temp[i];
+				temp[i] = temp[j];
+				temp[j] = t;
+			}
+		}
+	}
+
+	// Chuyển mảng lại thành ma trận theo kiểu zic-zắc
+	index = 0;
+	for (int i = 0; i < n; i++) {
+		if (i % 2 == 0) {
+			for (int j = 0; j < n; j++) {
+				a[i][j] = temp[index++];
+			}
+		}
+		else {
+			for (int j = n - 1; j >= 0; j--) {
+				a[i][j] = temp[index++];
+			}
+		}
+	}
+}
 void Menu()
 {
 	printf("\n------Menu---------\n");
 	printf("1. Tao ma tran vuong cap n>5.\n ");
 	printf("2. Xuat cac phan tu tren duong cheo chinh.\n");
 	printf("3. Xuat cac phan tu thuoc duong cheo song song voi duong cheo chinh.\n");
-	printf("4.  Tim phan tu lon nhat thuoc tam giac tren cua duong cheo chinh");
+	printf("4.  Tim phan tu lon nhat thuoc tam giac tren cua duong cheo chinh\n");
+	printf("5. Sap xep ma tran tang dan theo kieu zic-zac\n");
+
 
 }
 int main()
@@ -105,6 +145,11 @@ int main()
 				break;
 			case 4:
 				printf("Phan tu lon nhat thuoc tam giac tren cua duong cheo chinh: %d\n", xuatMaxTamGiacTren(a,n));
+				break;
+			case 5:
+				sapXepZicZac(a, n);
+				printf("Ma tran sau khi sap xep zic-zac:\n");
+				xuatMaTran(a,n);
 				break;
 			default: 
 				break;
