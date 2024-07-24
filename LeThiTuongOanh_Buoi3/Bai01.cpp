@@ -84,6 +84,20 @@ void xuat_duong_bien(int m, int n, int ma_tran[50][50]) {
 	printf("\n");
 }
 
+void xuat_phan_tu_cuc_dai(int m, int n, int ma_tran[50][50]) {
+	printf("Phan tu cuc dai :\n");
+	for (int i = 0; i < m; i++) {
+		for (int j = 0; j < n; j++) {
+			int is_max = 1;
+			if (i > 0 && ma_tran[i][j] <= ma_tran[i - 1][j]) is_max = 0;
+			if (i < m - 1 && ma_tran[i][j] <= ma_tran[i + 1][j]) is_max = 0;
+			if (j > 0 && ma_tran[i][j] <= ma_tran[i][j - 1]) is_max = 0;
+			if (j < n - 1 && ma_tran[i][j] <= ma_tran[i][j + 1]) is_max = 0;
+			if (is_max) printf("%d ", ma_tran[i][j]);
+		}
+	}
+	printf("\n");
+}
 
 
 
@@ -104,8 +118,8 @@ int main() {
 		printf("1. Tao va xuat ma tran \n");
 		printf("2. Tinh tong gia tri tren tung dong\n");
 		printf("3. Xuat phan tu lon nhat tren tung cot\n");
-		printf("3. Xuat duong bien trai phai tren duoi\n");
-
+		printf("4. Xuat duong bien trai phai tren duoi\n");
+		printf("5. Xuat cac phan tu cuc dai\n");
 		printf("0. Thoat\n");
 		printf("Nhap lua chon cua ban ");
 		scanf_s("%d", &choice);
@@ -129,6 +143,9 @@ int main() {
 
 		case 4:
 			xuat_duong_bien(m, n, ma_tran);
+			break;
+		case 5:
+			xuat_phan_tu_cuc_dai(m, n, ma_tran);
 			break;
 		case 0:
 			printf("Thoat.\n");
