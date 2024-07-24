@@ -122,6 +122,31 @@ void xuat_phan_tu_hoang_hau(int m, int n, int ma_tran[50][50]) {
 	printf("\n");
 }
 
+
+void xuat_phan_tu_diem_yen_ngua(int m, int n, int ma_tran[50][50]) {
+	printf("Phan tu yen ngua:\n");
+	for (int i = 0; i < m; i++) {
+		for (int j = 0; j < n; j++) {
+			int is_saddle = 1;
+			for (int k = 0; k < n; k++) {
+				if (ma_tran[i][j] > ma_tran[i][k]) {
+					is_saddle = 0;
+					break;
+				}
+			}
+			for (int k = 0; k < m; k++) {
+				if (ma_tran[i][j] < ma_tran[k][j]) {
+					is_saddle = 0;
+					break;
+				}
+			}
+			if (is_saddle) printf("%d ", ma_tran[i][j]);
+		}
+	}
+	printf("\n");
+}
+
+
 int main() {
 	int m,n, k = 10;
 	int ma_tran[50][50];
@@ -142,6 +167,7 @@ int main() {
 		printf("4. Xuat duong bien trai phai tren duoi\n");
 		printf("5. Xuat cac phan tu cuc dai\n");
 		printf("6. Xuat phan tu hoang hau\n");
+		printf("7. Xuat cac phan tu la diem yen ngua\n");
 		printf("0. Thoat\n");
 		printf("Nhap lua chon cua ban ");
 		scanf_s("%d", &choice);
@@ -173,7 +199,7 @@ int main() {
 			xuat_phan_tu_hoang_hau(m, n, ma_tran);
 			break;
 		case 7:
-		//	xuat_phan_tu_diem_yen_ngua(m, n, ma_tran);
+			xuat_phan_tu_diem_yen_ngua(m, n, ma_tran);
 			break;
 		case 8:
 		//	xuat_dong_chi_chua_so_chan(m, n, ma_tran);
