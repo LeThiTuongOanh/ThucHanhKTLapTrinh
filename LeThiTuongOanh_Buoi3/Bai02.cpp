@@ -173,6 +173,38 @@ void sapXepMaTranDong( int a[][50], int n) {
 	}
 }
 
+void sapXepCot(int n, int a[][50], int col, int tangDan) {
+	for (int i = 0; i < n - 1; i++) {
+		for (int j = i + 1; j < n; j++) {
+			if (tangDan) {
+				if (a[i][col] > a[j][col]) {
+					int temp = a[i][col];
+					a[i][col] = a[j][col];
+					a[j][col] = temp;
+				}
+			}
+			else {
+				if (a[i][col] < a[j][col]) {
+					int temp = a[i][col];
+					a[i][col] = a[j][col];
+					a[j][col] = temp;
+				}
+			}
+		}
+	}
+}
+
+void sapXepMaTranCot(int n, int a[][50]) {
+	for (int j = 0; j < n; j++) {
+		if (j % 2 == 0) {
+			sapXepCot(n, a, j, 1); // Sắp xếp tăng dần
+		}
+		else {
+			sapXepCot(n, a, j, 0); // Sắp xếp giảm dần
+		}
+	}
+}
+
 void Menu()
 {
 	printf("\n------Menu---------\n");
@@ -185,7 +217,7 @@ void Menu()
 	printf("7. Sap xep duong cheo phu tang dan\n");
 	printf("8. Sap xep duong cheo phu giam dan\n");
 	printf("9. Sap xep cac dong le tang dan, dong chan giam dan\n");
-
+	printf("10. Sap xep cac cot le giam dan, cot chan tang dan\n");
 
 }
 int main()
@@ -240,6 +272,11 @@ int main()
 			case 9:
 				sapXepMaTranDong(a,n);
 				printf("Ma tran sau khi sap xep cac dong le tang dan, dong chan giam dan:\n");
+				xuatMaTran(a,n);
+				break;
+			case 10:
+				sapXepMaTranCot(n, a);
+				printf("Ma tran sau khi sap xep cac cot le giam dan, cot chan tang dan:\n");
 				xuatMaTran(a,n);
 				break;
 			default: 
