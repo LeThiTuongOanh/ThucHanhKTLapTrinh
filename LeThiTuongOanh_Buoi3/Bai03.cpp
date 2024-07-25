@@ -72,6 +72,21 @@ int demPhanTuCoChuSo2(int m, int n, int maTran[][MAX]) {
 	}
 	return count;
 }
+
+void lietKeChiSoDongToanChan(int m, int n, int maTran[][MAX]) {
+	printf("Chi so cac dong chua toan gia tri chan:\n");
+	for (int i = 0; i < m; i++) {
+		int toanChan = 1;
+		for (int j = 0; j < n; j++) {
+			if (maTran[i][j] % 2 != 0) {
+				toanChan = 0;
+				break;
+			}
+		}
+		if (toanChan) printf("%d ", i);
+	}
+	printf("\n");
+}
 int main() {
 	int m, n, k = 100;
 	int maTran[MAX][MAX];
@@ -115,6 +130,9 @@ int main() {
 			break;
 		case 3:
 			printf("So phan tu co chu so 2: %d\n", demPhanTuCoChuSo2(m, n, maTran));
+			break;
+		case 8:
+			lietKeChiSoDongToanChan(m, n, maTran);
 			break;
 		case 0:
 			printf("Thoat.\n");
