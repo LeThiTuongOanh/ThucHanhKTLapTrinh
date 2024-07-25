@@ -41,6 +41,20 @@ void xuatCacCotSoLe(int m, int n, int maTran[][MAX]) {
 	}
 }
 
+int timPhanTuMaxTrenBien(int m, int n, int maTran[][MAX]) {
+	int max = maTran[0][0];
+	for (int i = 0; i < m; i++) {
+		if (maTran[i][0] > max) max = maTran[i][0];
+		if (maTran[i][n - 1] > max) max = maTran[i][n - 1];
+	}
+	for (int j = 0; j < n; j++) {
+		if (maTran[0][j] > max) max = maTran[0][j];
+		if (maTran[m - 1][j] > max) max = maTran[m - 1][j];
+	}
+	return max;
+}
+
+
 int main() {
 	int m, n, k = 10;
 	int maTran[MAX][MAX];
@@ -79,7 +93,9 @@ int main() {
 		case 1:
 			xuatCacCotSoLe(m, n, maTran);
 			break;
-		
+		case 2:
+			printf("Phan tu lon nhat tren bien: %d\n", timPhanTuMaxTrenBien(m, n, maTran));
+			break;
 		case 0:
 			printf("Thoat.\n");
 			break;
