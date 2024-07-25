@@ -204,6 +204,64 @@ void sapXepMaTranCot(int n, int a[][50]) {
 		}
 	}
 }
+/*void sapXepMangTangDan(int n, int arr[], int size) {
+	for (int i = 0; i < size - 1; i++) {
+		for (int j = i + 1; j < size; j++) {
+			if (arr[i] > arr[j]) {
+				int temp = arr[i];
+				arr[i] = arr[j];
+				arr[j] = temp;
+			}
+		}
+	}
+}
+
+void sapXepCheoChinhVaSongSong(int a[][50], int n) {
+	int size = (2 * n) - 1;
+	int index, temp[50];
+
+	for (int d = 0; d < size; d++) {
+		index = 0;
+
+		// Duyệt từ dưới lên trên cho đường chéo phụ
+		if (d < n) {
+			for (int i = d, j = 0; i >= 0 && j < n; i--, j++) {
+				temp[index++] = a[i][j];
+			}
+		}
+		else {
+			for (int i = n - 1, j = d - n + 1; i >= 0 && j < n; i--, j++) {
+				temp[index++] = a[i][j];
+			}
+		}
+
+		sapXepMangTangDan(n, temp, index);
+
+		index = 0;
+		if (d < n) {
+			for (int i = d, j = 0; i >= 0 && j < n; i--, j++) {
+				a[i][j] = temp[index++];
+			}
+		}
+		else {
+			for (int i = n - 1, j = d - n + 1; i >= 0 && j < n; i--, j++) {
+				a[i][j] = temp[index++];
+			}
+		}
+	}
+}
+*/
+
+int kiemTraDoiXungDuongCheoChinh(int n, int a[][50]) {
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < i; j++) {
+			if (a[i][j] != a[j][i]) {
+				return 0; // Không đối xứng
+			}
+		}
+	}
+	return 1; // Đối xứng
+}
 
 void Menu()
 {
@@ -218,6 +276,7 @@ void Menu()
 	printf("8. Sap xep duong cheo phu giam dan\n");
 	printf("9. Sap xep cac dong le tang dan, dong chan giam dan\n");
 	printf("10. Sap xep cac cot le giam dan, cot chan tang dan\n");
+	printf("11. Kiem tra ma tran co doi xung qua duong cheo chinh khong\n");
 
 }
 int main()
@@ -278,6 +337,14 @@ int main()
 				sapXepMaTranCot(n, a);
 				printf("Ma tran sau khi sap xep cac cot le giam dan, cot chan tang dan:\n");
 				xuatMaTran(a,n);
+				break;
+			case 11:
+				if (kiemTraDoiXungDuongCheoChinh(n, a)) {
+					printf("Ma tran doi xung qua duong cheo chinh.\n");
+				}
+				else {
+					printf("Ma tran khong doi xung qua duong cheo chinh.\n");
+				}
 				break;
 			default: 
 				break;
