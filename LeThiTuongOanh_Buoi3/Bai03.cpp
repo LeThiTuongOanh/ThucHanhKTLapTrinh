@@ -122,6 +122,16 @@ void hoanViHaiCot(int m, int n, int matran[][MAX], int cot1, int cot2)
 	printf("Ma tran sau khi hoan vi cot %d va cot %d:\n", cot1, cot2);
 	xuatMaTran(m, n, matran);
 }
+void hoanViHaiDong(int m, int n, int matran[][MAX], int dong1, int dong2)
+{
+	for (int j = 0; j < n; j++) {
+		int temp = matran[dong1][j];
+		matran[dong1][j] = matran[dong2][j];
+		matran[dong2][j] = temp;
+	}
+	printf("Ma tran sau khi hoan vi dong %d va dong %d:\n", dong1, dong2);
+	xuatMaTran(m, n, matran);
+}
 int main() {
 	int m, n, k = 100;
 	int maTran[MAX][MAX];
@@ -177,6 +187,13 @@ int main() {
 			printf("Nhap 2 cot can hoan vi: ");
 			scanf_s("%d%d", &cot1, &cot2);
 			hoanViHaiCot(m, n, maTran, cot1, cot2);
+			break;
+		case 14:
+			int dong1, dong2;
+			printf("Nhap 2 cot can hoan vi: ");
+			scanf_s("%d%d", &dong1, &dong2);
+			hoanViHaiDong(m, n, maTran, dong1, dong2);
+			break;
 		case 0:
 			printf("Thoat.\n");
 			break;
