@@ -87,6 +87,29 @@ void lietKeChiSoDongToanChan(int m, int n, int maTran[][MAX]) {
 	}
 	printf("\n");
 }
+
+//cau 4
+
+void xuatCacPhanTuCucTieu(int m, int n, int matran[][MAX])
+{
+	printf("Cac phan tu cuc tieu:\n ");
+	for (int i = 0; i < m; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			int laCucTieu = 1;
+			int giaTri = matran[i][j];
+
+			if (i>0 && matran[i - 1][j] <= giaTri) laCucTieu = 0;
+			if (i < m - 1 && matran[i + 1][j] <= giaTri) laCucTieu = 0;
+			if (j>0 && matran[i][j - 1] <= giaTri) laCucTieu = 0;
+			if (j < n - 1 && matran[i][j + 1] <= giaTri) laCucTieu = 0;
+
+			if (laCucTieu) printf("%d ", giaTri);
+		}
+	}
+	
+}
 int main() {
 	int m, n, k = 100;
 	int maTran[MAX][MAX];
@@ -130,6 +153,9 @@ int main() {
 			break;
 		case 3:
 			printf("So phan tu co chu so 2: %d\n", demPhanTuCoChuSo2(m, n, maTran));
+			break;
+		case 4:
+			xuatCacPhanTuCucTieu(m, n, maTran);
 			break;
 		case 8:
 			lietKeChiSoDongToanChan(m, n, maTran);
