@@ -12,7 +12,20 @@ int kiem_tra_chuoi_ky_so(const char *s) {
 }
 
 
-
+void chuyen_hoa_chu_cai_dau_tu(char *s) {
+	int la_bat_dau = 1;
+	while (*s) {
+		if (la_bat_dau) {
+			*s = toupper(*s);
+			la_bat_dau = 0;
+		}
+		else {
+			*s = tolower(*s);
+		}
+		if (*s == ' ') la_bat_dau = 1;
+		s++;
+	}
+}
 int main() {
 	int lua_chon;
 	printf("----------MeNu------------ :\n");
@@ -37,7 +50,14 @@ int main() {
 				}
 				break;
 	}
-	
+	case 2: {
+				char s[100];
+				printf("Nhap chuoi can chuyen doi: ");
+				scanf_s(" %[^\n]", s, sizeof(s));
+				chuyen_hoa_chu_cai_dau_tu(s);
+				printf("Chuoi sau khi chuyen doi: %s\n", s);
+				break;
+	}
 	default:
 		printf("Lua chon khong hop le!\n");
 		break;
