@@ -26,6 +26,17 @@ void chuyen_hoa_chu_cai_dau_tu(char *s) {
 		s++;
 	}
 }
+
+void tim_kiem_ten(const char *ho_ten, const char *ten) {
+	const char *ptr = strstr(ho_ten, ten);
+	if (ptr) {
+		printf("Ten '%s' ton tai trong chuoi '%s'.\n", ten, ho_ten);
+	}
+	else {
+		printf("Ten '%s' khong ton tai trong chuoi '%s'.\n", ten, ho_ten);
+	}
+}
+
 int main() {
 	int lua_chon;
 	printf("----------MeNu------------ :\n");
@@ -56,6 +67,15 @@ int main() {
 				scanf_s(" %[^\n]", s, sizeof(s));
 				chuyen_hoa_chu_cai_dau_tu(s);
 				printf("Chuoi sau khi chuyen doi: %s\n", s);
+				break;
+	}
+	case 4: {
+				char ho_ten[100], ten[50];
+				printf("Nhap chuoi ho ten: ");
+				scanf_s(" %[^\n]", ho_ten, sizeof(ho_ten));
+				printf("Nhap ten can tim: ");
+				scanf_s(" %[^\n]", ten, sizeof(ten));
+				tim_kiem_ten(ho_ten, ten);
 				break;
 	}
 	default:
