@@ -45,6 +45,25 @@ int tong_cau_3_khu_de_quy(int n) {
 	}
 	return tong;
 }
+
+
+// Hàm tính tổng S(n) = 1 + 1/3 + 1/5 + ... + 1/(2n + 1) (Đệ quy)
+double tong_cau_4_de_quy(int n) {
+	if (n == 0)
+		return 1.0;  // Trường hợp cơ bản: S(0) = 1
+	return 1.0 / (2 * n + 1) + tong_cau_4_de_quy(n - 1);
+}
+
+// Hàm tính tổng S(n) = 1 + 1/3 + 1/5 + ... + 1/(2n + 1) (Khử đệ quy)
+double tong_cau_4_khu_de_quy(int n) {
+	double tong = 0.0;
+	for (int i = 0; i <= n; i++) {
+		tong += 1.0 / (2 * i + 1);
+	}
+	return tong;
+}
+
+
 int main() {
 	int n;
 	printf("Nhap vao so nguyen duong n: ");
@@ -59,6 +78,9 @@ int main() {
 
 	printf("Tong 1*2 + 2*3 + ... + %d*(%d+1) (De quy): %d\n", n, n, tong_cau_3_de_quy(n));
 	printf("Tong 1*2 + 2*3 + ... + %d*(%d+1) (Khu de quy): %d\n", n, n, tong_cau_3_khu_de_quy(n));
+
+	printf("Tong S(n) (De quy): %f\n", tong_cau_4_de_quy(n));
+	printf("Tong S(n) (Khu de quy): %f\n", tong_cau_4_khu_de_quy(n));
 
 	getchar();
 	getchar();
