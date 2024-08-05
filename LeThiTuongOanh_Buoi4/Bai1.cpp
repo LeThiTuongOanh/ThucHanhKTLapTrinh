@@ -30,6 +30,21 @@ double tong_phan_so_khu_de_quy(int n) {
 	return tong;
 }
 
+
+int tong_cau_3_de_quy(int n) {
+	if (n == 1)
+		return 1 * 2;
+	return n * (n + 1) + tong_cau_3_de_quy(n - 1);
+}
+
+// (Khử đệ quy)
+int tong_cau_3_khu_de_quy(int n) {
+	int tong = 0;
+	for (int i = 1; i <= n; i++) {
+		tong += i * (i + 1);
+	}
+	return tong;
+}
 int main() {
 	int n;
 	printf("Nhap vao so nguyen duong n: ");
@@ -40,6 +55,10 @@ int main() {
 
 	printf("Tong 1/2 + 2/3 + ... + %d/(%d+1) (De quy): %f\n", n, n, tong_phan_so_de_quy(n));
 	printf("Tong 1/2 + 2/3 + ... + %d/(%d+1) (Khu de quy): %f\n", n, n, tong_phan_so_khu_de_quy(n));
+
+
+	printf("Tong 1*2 + 2*3 + ... + %d*(%d+1) (De quy): %d\n", n, n, tong_cau_3_de_quy(n));
+	printf("Tong 1*2 + 2*3 + ... + %d*(%d+1) (Khu de quy): %d\n", n, n, tong_cau_3_khu_de_quy(n));
 
 	getchar();
 	getchar();
