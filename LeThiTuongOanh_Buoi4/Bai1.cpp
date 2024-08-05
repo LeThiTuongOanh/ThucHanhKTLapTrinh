@@ -9,14 +9,14 @@ int tong_day_de_quy(int n) {
 }
 
 // Hàm tính tổng 1 + 2 + 3 + ... + n (Khử đệ quy)
-/*int tong_day_khu_de_quy(int n) {
+int tong_day_khu_de_quy(int n) {
 	int tong = 0;
 	for (int i = 1; i <= n; i++) {
 		tong += i;
 	}
 	return tong;
 }
-*/
+
 
 int main() {
 	int n;
@@ -24,7 +24,7 @@ int main() {
 	scanf_s("%d", &n);
 
 	printf("Tong day 1 + 2 + ... + %d (De quy): %d\n", n, tong_day_de_quy(n));
-//	printf("Tong day 1 + 2 + ... + %d (Khu de quy): %d\n", n, tong_day_khu_de_quy(n));
+	printf("Tong day 1 + 2 + ... + %d (Khu de quy): %d\n", n, tong_day_khu_de_quy(n));
 
 	getchar();
 	getchar();
