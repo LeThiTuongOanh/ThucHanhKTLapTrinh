@@ -3,11 +3,11 @@
 
 >>**Thầy  Bùi Công Danh**
   
-| STT | MSSV| Họ tên | Chức vụ  |
-|  1  |2001216014| Lê Thị Tường Oanh
-|  2  |2001216091|Lê Nhật Quyên
-|  3  |2001215849  Huỳnh Tuấn Khang 
------------------------------------------------
+<h5>| STT | MSSV| Họ tên</h5>
+<p>|  1  |2001216014| Lê Thị Tường Oanh</p>
+<p>|  2  |2001216091|Lê Nhật Quyên</p>
+<p>|  3  |2001215849  Huỳnh Tuấn Khang </p>
+------
 ### Sử dụng 
  - .Net Framework version 4.8
  - Visual studio 2022
