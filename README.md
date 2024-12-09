@@ -4,10 +4,9 @@
 >>**Thầy  Bùi Công Danh**
   
 | STT | MSSV| Họ tên | Chức vụ  |
-|----------------|--------------------|--------------------|
-|  1  |2001216014| Lê Thị Tường Oanh  |   Nhóm trưởng  |
-|  2  |2001216091|Lê Nhật Quyên  |   Thành viên  |
-|  3  |2001215849  Huỳnh Tuấn Khang  |   Thành viên  |
+|  1  |2001216014| Lê Thị Tường Oanh
+|  2  |2001216091|Lê Nhật Quyên
+|  3  |2001215849  Huỳnh Tuấn Khang 
 -----------------------------------------------
 ### Sử dụng 
  - .Net Framework version 4.8
