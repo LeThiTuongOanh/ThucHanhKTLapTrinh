@@ -16,9 +16,6 @@
 
 ##  Quản lý ký túc xá trường Đại Học Công Thương TP.HCM.
 
-
-### Yêu cầu 
-<p>AI: Gợi ý thực đơn theo tuần, Xếp phòng vào ký túc xá </p>
 <h5> Nền Tảng </h5>
 <p> Cơ sở dữ liệu: SQL Server</p>
 <p>Giao diện ứng dụng: WinForms </p>
