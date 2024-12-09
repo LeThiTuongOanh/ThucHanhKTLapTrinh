@@ -4,13 +4,10 @@
 >>**Thầy  Bùi Công Danh**
   
 <h5>| STT | MSSV| Họ tên</h5>
-<p>|  1  |2001216014| Lê Thị Tường Oanh</p>
-<p>|  2  |2001216091|Lê Nhật Quyên</p>
-<p>|  3  |2001215849  Huỳnh Tuấn Khang </p>
-------
-### Sử dụng 
- - .Net Framework version 4.8
- - Visual studio 2022
+<p>|  1_2001216091_Lê Nhật Quyên</p>
+<p>|  2_2001216014_Lê Thị Tường Oanh</p>
+<p>|  3_2001215849_Huỳnh Tuấn Khang </p>
+
 -----------------------------------------------
 
 
